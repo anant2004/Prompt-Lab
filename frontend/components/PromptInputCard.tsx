@@ -34,7 +34,7 @@ export function PromptInputCard({
       <textarea
         value={prompt}
         onChange={(event) => onChange(event.target.value.slice(0, maxChars))}
-        placeholder="Example: You are a product strategist. Create a 1-page go-to-market plan for a student productivity app targeting engineering colleges in India. Include assumptions, timeline, and KPIs in a markdown table."
+        placeholder="Example: You are a senior strategy consultant. Create a 1-page commercial launch plan for a steel manufacturing business unit targeting automotive and construction clients. Include assumptions, rollout timeline, and KPIs in a markdown table."
         className="h-44 w-full resize-none rounded-2xl border border-zinc-200 bg-white p-4 text-sm leading-relaxed text-slate-800 outline-none transition duration-300 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/25"
       />
 
