@@ -1,6 +1,8 @@
 import { EvaluationResponse } from "@/types/evaluation";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const apiUrlFromEnv = process.env.NEXT_PUBLIC_API_URL?.trim();
+const API_URL = (apiUrlFromEnv || "http://localhost:8000").replace(/\/$/, "");
+const EVALUATE_URL = `${API_URL}/api/evaluate`;
 
 const mockResponse = (inputPrompt: string): EvaluationResponse => ({
   overall_score: 76,
@@ -28,7 +30,7 @@ const mockResponse = (inputPrompt: string): EvaluationResponse => ({
 });
 
 export async function evaluatePrompt(prompt: string): Promise<EvaluationResponse> {
-  const response = await fetch(`${API_URL}/evaluate`, {
+  const response = await fetch(EVALUATE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
